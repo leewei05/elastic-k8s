@@ -1,2 +1,2 @@
-# elastic-k8s
+# Elastic Cloud Kubernetes
 Elastic Cloud Kubernetes with jsonnet
