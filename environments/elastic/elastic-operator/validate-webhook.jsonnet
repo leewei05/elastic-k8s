@@ -20,6 +20,7 @@
       },
       failurePolicy: 'Ignore',
       name: 'elastic-agent-validation-v1alpha1.k8s.elastic.co',
+      sideEffects: 'None',
       rules: [
         {
           apiGroups: [
@@ -78,6 +79,7 @@
       },
       failurePolicy: 'Ignore',
       name: 'elastic-apm-validation-v1beta1.k8s.elastic.co',
+      sideEffects: 'None',
       rules: [
         {
           apiGroups: [
@@ -107,6 +109,7 @@
       },
       failurePolicy: 'Ignore',
       name: 'elastic-beat-validation-v1beta1.k8s.elastic.co',
+      sideEffects: 'None',
       rules: [
         {
           apiGroups: [
@@ -136,6 +139,7 @@
       },
       failurePolicy: 'Ignore',
       name: 'elastic-ent-validation-v1beta1.k8s.elastic.co',
+      sideEffects: 'None',
       rules: [
         {
           apiGroups: [
@@ -165,6 +169,7 @@
       },
       failurePolicy: 'Ignore',
       name: 'elastic-es-validation-v1.k8s.elastic.co',
+      sideEffects: 'None',
       rules: [
         {
           apiGroups: [
@@ -194,6 +199,7 @@
       },
       failurePolicy: 'Ignore',
       name: 'elastic-es-validation-v1beta1.k8s.elastic.co',
+      sideEffects: 'None',
       rules: [
         {
           apiGroups: [
@@ -223,6 +229,7 @@
       },
       failurePolicy: 'Ignore',
       name: 'elastic-kb-validation-v1.k8s.elastic.co',
+      sideEffects: 'None',
       rules: [
         {
           apiGroups: [
@@ -252,6 +259,7 @@
       },
       failurePolicy: 'Ignore',
       name: 'elastic-kb-validation-v1beta1.k8s.elastic.co',
+      sideEffects: 'None',
       rules: [
         {
           apiGroups: [
