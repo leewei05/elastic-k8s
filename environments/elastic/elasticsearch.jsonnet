@@ -11,25 +11,19 @@
       nodeSets: [
         {
           name: 'masters',
-          count: 3,
+          count: 1,
           podTemplate: {
             spec: {
               containers: [
                 {
-                  name: 'elasticsearch',
-                  env: [
-                    {
-                      name: 'ES_JAVA_OPTS',
-                      value: '-Xms2g -Xmx2g',
-                    },
-                  ],
+                  name: $._config.elasticsearch.name,
                   resources: {
                     requests: {
-                      memory: '4Gi',
-                      cpu: 8,
+                      memory: '2Gi',
+                      cpu: 1,
                     },
                     limits: {
-                      memory: '4Gi',
+                      memory: '2Gi',
                     },
                   },
                 },
@@ -45,10 +39,28 @@
         },
         {
           name: 'data',
-          count: 10,
+          count: 5,
           config: {
             'node.roles': ['data', 'ingest', 'ml', 'transform'],
           },
+          volumeClaimTemplates: [
+            {
+              metadata: {
+                name: 'elasticsearch-data',
+              },
+              spec: {
+                accessModes: [
+                  'ReadWriteOnce',
+                ],
+                resources: {
+                  requests: {
+                    storage: '100Gi',
+                  },
+                },
+                storageClassName: 'standard',
+              },
+            },
+          ],
         },
       ],
     },
