@@ -1,12 +1,22 @@
 # Elastic Cloud Kubernetes
 
+## Prerequisite
+
+Install the following tools:
+- [kubectl](https://kubernetes.io/docs/tasks/tools/) for managin Kubernetes cluster
+- [Jsonnet](https://github.com/google/jsonnet)
+- [jsonnet-bundler](https://github.com/jsonnet-bundler/jsonnet-bundler) for package management
+- [Tanka](https://tanka.dev/install) for configuration management
+
 ## Getting Started
 
 Apply namespace and resources for Elastic operator on Kubernetes.
 
 ```
-kubectl apply -f environments/elastic/elastic-operator/elastic-operator.yaml
+kubectl apply -f elastic-operator/elastic-operator.yaml
 ```
+
+## TODOs
 
 - [ ] Paramterize configuration
 - [ ] Isolate elastic CRD resources into libsonnet
@@ -16,4 +26,4 @@ kubectl apply -f environments/elastic/elastic-operator/elastic-operator.yaml
 - [ ] Enterprise search
 - [ ] Beats
 - [ ] README
-- [ ] Isolate elastic CRD resources into other directory
+- [x] Isolate elastic CRD resources into other directory
