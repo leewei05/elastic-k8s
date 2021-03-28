@@ -4,5 +4,5 @@ __pycache__
 .env/
 .history/
 .vscode/
-vendor/*
+vendor/
 test/

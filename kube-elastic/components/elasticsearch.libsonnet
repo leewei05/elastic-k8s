@@ -1,10 +1,19 @@
-{
+local defaults = {
+  local defaults = self,
+  namespace: error 'must provide namespace',
+  name: error 'must provide name',
+};
+
+function(params) {
+  local p = self,
+  config:: defaults + params,
+
   elasticsearch: {
     apiVersion: 'elasticsearch.k8s.elastic.co/v1',
     kind: 'Elasticsearch',
     metadata: {
-      name: 'elasticsearch',
-      namespace: 'elastic',
+      name: p.config.name,
+      namespace: p.config.namespace,
     },
     spec: {
       version: '7.11.1',
@@ -16,7 +25,7 @@
             spec: {
               containers: [
                 {
-                  name: $._config.elasticsearch.name,
+                  name: p.config.name,
                   resources: {
                     requests: {
                       memory: '2Gi',

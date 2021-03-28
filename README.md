@@ -6,7 +6,6 @@ Install the following tools:
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) for managin Kubernetes cluster
 - [Jsonnet](https://github.com/google/jsonnet)
 - [jsonnet-bundler](https://github.com/jsonnet-bundler/jsonnet-bundler) for package management
-- [Tanka](https://tanka.dev/install) for configuration management
 
 ## Getting Started
 
@@ -27,3 +26,4 @@ kubectl apply -f elastic-operator/elastic-operator.yaml
 - [ ] Beats
 - [ ] README
 - [x] Isolate elastic CRD resources into other directory
+- [x] Generate manifests file with build.sh

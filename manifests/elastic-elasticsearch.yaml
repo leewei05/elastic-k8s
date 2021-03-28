@@ -1,0 +1,43 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: es
+  namespace: elastic
+spec:
+  nodeSets:
+  - config:
+      node.roles:
+      - master
+      node.store.allow_mmap: false
+      xpack.ml.enabled: true
+    count: 1
+    name: masters
+    podTemplate:
+      spec:
+        containers:
+        - name: es
+          resources:
+            limits:
+              memory: 2Gi
+            requests:
+              cpu: 1
+              memory: 2Gi
+  - config:
+      node.roles:
+      - data
+      - ingest
+      - ml
+      - transform
+    count: 5
+    name: data
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+        storageClassName: standard
+  version: 7.11.1
