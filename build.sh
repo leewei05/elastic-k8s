@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# This script is origin from https://github.com/prometheus-operator/kube-prometheus. :)
 # This script uses arg $1 (name of *.jsonnet file to use) to generate the manifests/*.yaml files.
 
 set -e
