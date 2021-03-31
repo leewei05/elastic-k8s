@@ -1,15 +1,28 @@
-local es = import './components/elasticsearch.libsonnet';
+local elasticsearch = import './components/elasticsearch.libsonnet';
+local customMixin = import './components/mixin/custom.libsonnet';
 
 {
   values:: {
     common: {
       namespace: 'default',
     },
-    es: {
+    elasticsearch: {
       namespace: $.values.common.namespace,
       name: 'es',
     },
+    kubeElastic: {
+      namespace: $.values.common.namespace,
+    },
   },
 
-  es: es($.values.es),
+  elasticsearch: elasticsearch($.values.elasticsearch),
+  kubeElastic: customMixin($.values.kubeElastic) + {
+    namespace: {
+      apiVersion: 'v1',
+      kind: 'Namespace',
+      metadata: {
+        name: $.values.kubeElastic.namespace,
+      },
+    },
+  },
 }

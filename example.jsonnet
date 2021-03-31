@@ -8,4 +8,5 @@ local ke =
     },
   };
 
-{ ['elastic-' + name]: ke.es[name] for name in std.objectFields(ke.es) }
+{ 'setup/0namespace-namespace': ke.kubeElastic.namespace } +
+{ ['elastic-' + name]: ke.elasticsearch[name] for name in std.objectFields(ke.elasticsearch) }
